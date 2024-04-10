@@ -26,7 +26,7 @@ h3 strong,
 h4 strong {
   font-weight: 500!important;
   line-height: 0.8 !important;
-  font-size: var(--mega-font-size) !important;
+  font-size: 2em!important;
   letter-spacing: -0.03em !important;
 }
 @media screen and (max-width: 767px) {
@@ -34,7 +34,7 @@ h4 strong {
   h2 strong,
   h3 strong,
   h4 strong {
-    font-size: var(--mega-font-size-mobile) !important;
+    font-size: 1.5em !important;
   }
 }
 /*H3*/
