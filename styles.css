@@ -316,7 +316,7 @@ button[type="submit"]:after,
   transition: var(--trans) !important;
 }
 /*Gallery Logo*/
-.sqs-gallery img {
+.sqs-gallery-block-grid .sqs-gallery img {
   transform: scale(0.4) !important;
 }
 /*Grid Outline*/
