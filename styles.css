@@ -34,7 +34,7 @@ h4 strong {
   h2 strong,
   h3 strong,
   h4 strong {
-    font-size: 1.5em !important;
+    font-size: 1.4em !important;
   }
 }
 /*H3*/
@@ -456,7 +456,7 @@ textarea {
 /*Adjust Spacing Mobile*/
 @media screen and (max-width: 767px) {
   .accordion-item:first-child {
-    margin-top: -20px !important;
+    margin-top: -15px !important;
   }
 }
 /*Newsletter Form*/
