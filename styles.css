@@ -413,11 +413,10 @@ textarea {
   font-family: var(--inter) !important;
   line-height: 0.8 !important;
 }
-/*Accordion Item*/
 .accordion-item {
   margin: 20px 0!important;
   overflow: hidden!important;
-  border: var(--l-border);
+  outline: 1px solid transparent!important;
   transition: var(--trans);
 }
 @media screen and (max-width: 767px) {
@@ -426,44 +425,13 @@ textarea {
   }
 }
 .accordion-item:hover {
-  border: var(--a-border);
+  outline: 1px solid var(--tweak-accordion-block-stroke-color) !important;
   transition: var(--trans);
 }
-/*Accordion BLACK*/
-[data-section-theme="black"] .accordion-item,
-[data-section-theme="black-bold"] .accordion-item {
-  border: 1px solid var(--dark-bold);
-}
-[data-section-theme="black"] .accordion-item:hover,
-[data-section-theme="black-bold"] .accordion-item:hover {
-  border: 1px solid var(--light-bold);
-}
-[data-section-theme="black"] .accordion-item__title-wrapper,
-[data-section-theme="black-bold"] .accordion-item__title-wrapper {
-  background-color: var(--dark-bold) !important;
-}
-[data-section-theme="black"] .accordion-item__description,
-[data-section-theme="black-bold"] .accordion-item__description {
-  background: var(--dark-bold);
-}
-[data-section-theme="black"] .accordion-icon-container,
-[data-section-theme="black-bold"] .accordion-icon-container {
-  background: var(--accent-bold);
-}
-/*Accordion DARK*/
-[data-section-theme="dark"] .accordion-item h2,
-[data-section-theme="dark"] .accordion-item p {
-  color: var(--dark) !important;
-}
 /*Accordion Title Wrapper*/
-.accordion-item__title-wrapper {
-  background: var(--white);
-  padding: 0px 20px!important;
-  background-color: var(--light) !important;
-}
-/*Accordion Description*/
+.accordion-item__title-wrapper,
 .accordion-item__description {
-  background: var(--light);
+  background-color: var(--accordion-background) !important;
 }
 /*Small P Margin*/
 .accordion-item .sqsrte-small {
@@ -474,13 +442,12 @@ textarea {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background-color: var(--accent);
+  background-color: var(--tweak-accordion-block-stroke-color);
   padding: 5px;
   border-radius: 50px;
 }
 /*Accordion Plus*/
 .plus {
-  color: var(--white);
   height: 10px !important;
   width: 10px !important;
   left: unset !important;
