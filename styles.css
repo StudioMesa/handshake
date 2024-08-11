@@ -453,6 +453,12 @@ textarea {
   left: unset !important;
   top: unset !important;
 }
+/*Adjust Spacing Mobile*/
+@media screen and (max-width: 767px) {
+  .accordion-item:first-child {
+    margin-top: -20px !important;
+  }
+}
 /*Newsletter Form*/
 .newsletter-form {
   display: flex!important;
