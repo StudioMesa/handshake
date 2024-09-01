@@ -1,4 +1,4 @@
-//---Handshake CSS 8/10/24---//
+//---Handshake CSS 09/01/24---//
 @fe-block-height:25.8px;
 html{
 --c-border:1px solid currentColor;
@@ -15,6 +15,7 @@ scroll-padding-top: 10vh!important;}
 
 
 //---TYPOGRAPHY---//
+
 /*Hero Section*/
 .hero-wrap{
 position:relative;
@@ -24,11 +25,11 @@ overflow:visible!important;}
 
 /*MEGA*/
 h1 strong, h2 strong, h3 strong, h4 strong{
-font-weight:500!important;
-line-height:.8!important;
-font-size:2em!important;
+font-weight:inherit!important;
+line-height:.85!important;
+font-size:var(--mega-font-size)!important;
 letter-spacing:-.03em!important;
-@media screen and (max-width:767px){font-size:1.4em!important;}}
+@media screen and (max-width:767px){font-size:var(--mega-font-size-mobile)!important;}}
 
 /*H3*/
 h3{
@@ -67,7 +68,7 @@ font-size:1.1em;
 letter-spacing:.02em;}
 line-height:1.45;
 font-style:normal!important;
-letter-spacing:.015em;}
+letter-spacing:.02em;}
 
 /*Add Underline on Hover*/
 p a:hover{
@@ -123,6 +124,13 @@ margin-right: 30px;
 padding-left: 4px!important;}}
 
 
+//---FOOTER---//
+/*Scaled Text P*/
+.sqsrte-scaled-text p{
+margin-left:-14px!important;
+line-height:1.25!important;}
+
+
 //---NAVIGATION---//
 /*Remove underline from active*/
 .header-nav-item--active a, body:not(.header--menu-open) .header-nav-folder-item--active .header-nav-folder-item-content, :is([aria-current="page"], [aria-current="true"]) .header-menu-nav-item-content{
@@ -130,16 +138,11 @@ background-image:none!important;
 text-decoration:none!important;
 background:none!important;}
 
-/*Add underline to nav hover*/
-.header-nav-item:hover{
-text-decoration:underline!important;
-text-underline-offset:3px;}
-
 
 //---MOBILE NAVIGATION---//
 /*Mobile Nav Menu Item*/
 .header-menu-nav-item a{
-font-size:32px!important;
+font-size:var(--mobile-nav-size)!important;
 letter-spacing:-.015em;}
 
 
@@ -259,22 +262,15 @@ width:fit-content!important;}
 /*Field Text / Focus Adjustment*/
 .sqs-block-form{
 input, select, textarea, radio, checkbox, .caption-text{
-font-family: var(--inter), var(--body), sans-serif!important;
-font-feature-settings:
-var(--inter-features);
 transition:var(--trans)!important;
 outline-offset: 3px!important;
 outline:1px solid transparent;
+font-weight:500!important;
 &:focus{
 outline:1px solid var(--tweak-form-block-stroke-color);}}
-::placeholder{
-font-family: var(--inter), var(--body), sans-serif!important;
-font-feature-settings:
-var(--inter-features);}}
-
-/*Text Area Min Height*/
-textarea{
-min-height:150px!important;}
+::placeholder, select.show-placeholder, .form-input-prefix{
+color:var(--tweak-form-block-stroke-color)!important;
+opacity:1!important;}}
 
 /*Replace "reqired" with "*" */
 .form-wrapper .field-list .description.required{
@@ -289,37 +285,59 @@ content:'*'!important;
 font-weight:600!important;
 font-size:12px;}}
 
-/*Lightbox Dimensions*/
-.sqs-modal-lightbox-content .lightbox-inner .lightbox-content{
-padding:60px!important;
-max-width:400px!important;
-@media screen and (max-width:800px){
-padding:30px!important;}}
 
-/*Lightbox Form Close X*/
-.lightbox-close{
+//---LIGHTBOX FORM---//
+.sqs-modal-lightbox-content .lightbox-inner .lightbox-content{
+border-radius:var(--global-radius);
+max-width:450px!important;
+padding:80px 60px;}
+
+.sqs-modal-lightbox-content .lightbox-inner .lightbox-content .lightbox-close{
+top:80px;
+right:60px;
+border-radius:var(--global-radius);
+font-size:0!important;
+padding:10px;
+&:after{
+font-weight:300!important;
+font-size:26px;
+content:"×";
+margin-bottom:3px!important;
+font-family:var(--inter)!important;}
+height:20px;
+width:20px;
 display:flex;
 align-items:center;
 justify-content:center;
-top:32px!important;
-right:26px!important;
-height:30px!important;
-width:30px!important;
-font-size:0!important;
-visibility:hidden;}
-.lightbox-close:after{
-font-size:1.5rem!important;
-visibility:visible;
-content:"✕";
-font-family:var(--inter)!important;
-line-height:.8!important;}
+color:var(--dark)!important;
+background:var(--light)!important;
+font-family:var(--arrows)!important;
+transition:var(--trans)!important;
+&:hover{
+transition:var(--trans)!important;
+background:var(--dark)!important;
+color:var(--light)!important;}}
+.sqs-modal-lightbox-content .form-submit-button {
+width:100%!important;}
+
+/*Form Title*/
+.form-title{
+letter-spacing:.01em!important;}
 
 
 //---ACCORDION---//
+/*Accordion Title*/
+.accordion-item__title{
+font-weight:500!important;
+letter-spacing:.035em!important;}
+
+/*Accordion Item*/
 .accordion-item{
-margin:20px 0!important;
+margin:10px 0!important;
 @media screen and (max-width:767px){
-margin:15px 0!important;}
+margin:16px 0!important;}
+border-radius:var(--global-radius)!important;
+-webkit-border-radius:var(--global-radius)!important;
 overflow:hidden!important;
 outline:1px solid transparent!important;
 transition:var(--trans); 
@@ -331,9 +349,10 @@ transition:var(--trans);}}
 .accordion-item__title-wrapper, .accordion-item__description{
 background-color:var(--accordion-background)!important;}
 
-/*Small P Margin*/
-.accordion-item .sqsrte-small{
-margin:0!important;}
+/*Adjust Spacing Mobile*/
+@media screen and (max-width:767px){
+.accordion-item:first-child{
+margin-top:0px!important;}}
 
 /*Accordion Plus Container*/
 .accordion-icon-container {
@@ -351,21 +370,13 @@ width:10px !important;
 left:unset !important;
 top:unset !important;}
 
-/*Adjust Spacing Mobile*/
-@media screen and (max-width:767px){
-.accordion-item:first-child{
-margin-top:-15px!important;}}
-
 
 
 //---NEWSLETTER---//
 /*Newsletter Form*/
 .newsletter-form{
-display:flex!important;}
-
-/*Flex Background Radius*/
-.tweak-global-animations-animation-type-flex .newsletter-form .sqs-button-element--primary:not(.ma-pricing-option-button)::before{
-border-radius:0px!important;}
+display:flex!important;
+align-items:center!important;}
 
 /*Remove Header + Footnote*/
 .newsletter-block .newsletter-form-header, .newsletter-form-footnote{display:none;}
@@ -376,7 +387,9 @@ border-radius:0px!important;}
 .field.name.required{
 min-width:unset!important;
 margin:0!important;
-padding:0!important;}
+padding:0!important;
+-webkit-animation: .3s ease 0s normal forwards 1 flexload;
+animation: .3s ease 0s normal forwards 1 flexload;}
 
 /*FLOAT*/
 /*Wrapper Alignment*/
@@ -421,18 +434,18 @@ height:100%!important;
 left:5px;}}
 /*Newsletter Button*/
 .newsletter-form-button{
-padding: 15px 20px!important;
+padding: 14px 20px!important;
 display:flex!important;
 position:relative!important;
 align-items:center!important;
 justify-content:center;
-border-radius:0px!important;
+border-radius:var(--global-radius)!important;
 &:before{
-border-radius:0x!important;}
+border-radius:var(--global-radius)!important;}
 &:hover{
 opacity:1!important;}
 @media screen and (max-width:700px){ width:100%!important;}
-transition:var(--trans)!important;}}
+transition:var(--trans)!important;}  }
 
 /*STACK*/
 /*Align Wrppers*/
@@ -462,7 +475,7 @@ position:relative;
 display:flex!important;
 align-items:stretch!important;
 flex-direction:column!important;
-gap:6px;
+gap:8px;
 align-items:center;}
 .newsletter-form-field-wrapper{  
 max-width:unset!important;}
@@ -471,11 +484,11 @@ max-width:unset!important;}
 text-align:center!important;}
 /*Button*/
 .newsletter-form-button, .newsletter-form-button-wrapper{
-border-radius:0px!important;
+border-radius:var(--global-radius)!important;
 margin:0!important;
 width:100%!important;}
 .newsletter-form-button{
-padding:28px!important;
+padding:14px!important;
 &:hover{
 opacity:1!important;}}}
 
@@ -483,16 +496,16 @@ opacity:1!important;}}}
 .sqs-block-newsletter .newsletter-form-field-element{
 min-width:15rem!important;
 padding: 15px!important;
-font-size: 15px!important;
+border-radius:var(--global-radius)!important;
 border:none!important;
-border-radius:0px!important;
--webkit-border-radius:0px!important;
+-webkit-border-radius:var(--global-radius)!important;
 transition:var(--trans)!important;
 outline-offset: 3px;
 outline:1px solid transparent;
 &::placeholder{
-color:var(--light)!important;}
-text-align:left!important;
+opacity:.5;}
+&:focus{
+outline:1px solid var(--accent)!important;}
 @media screen and (max-width:767px){
 text-align:center!important;}}
 
