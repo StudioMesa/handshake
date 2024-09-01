@@ -24,9 +24,9 @@ h1 strong,
 h2 strong,
 h3 strong,
 h4 strong {
-  font-weight: 500!important;
-  line-height: 0.8 !important;
-  font-size: 2em!important;
+  font-weight: inherit!important;
+  line-height: 0.85 !important;
+  font-size: var(--mega-font-size) !important;
   letter-spacing: -0.03em !important;
 }
 @media screen and (max-width: 767px) {
@@ -34,7 +34,7 @@ h4 strong {
   h2 strong,
   h3 strong,
   h4 strong {
-    font-size: 1.4em !important;
+    font-size: var(--mega-font-size-mobile) !important;
   }
 }
 /*H3*/
@@ -72,7 +72,7 @@ footer .sqsrte-small em {
   font-size: 1.4em;
   line-height: 1.45;
   font-style: normal!important;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.02em;
 }
 @media screen and (max-width: 800px) {
   .sqsrte-large strong {
@@ -153,6 +153,11 @@ h3 a em {
     padding-left: 4px!important;
   }
 }
+/*Scaled Text P*/
+.sqsrte-scaled-text p {
+  margin-left: -14px !important;
+  line-height: 1.25 !important;
+}
 /*Remove underline from active*/
 .header-nav-item--active a,
 body:not(.header--menu-open) .header-nav-folder-item--active .header-nav-folder-item-content,
@@ -161,14 +166,9 @@ body:not(.header--menu-open) .header-nav-folder-item--active .header-nav-folder-
   text-decoration: none!important;
   background: none!important;
 }
-/*Add underline to nav hover*/
-.header-nav-item:hover {
-  text-decoration: underline!important;
-  text-underline-offset: 3px;
-}
 /*Mobile Nav Menu Item*/
 .header-menu-nav-item a {
-  font-size: 32px!important;
+  font-size: var(--mobile-nav-size) !important;
   letter-spacing: -0.015em;
 }
 /*Core Button Structure*/
@@ -354,11 +354,10 @@ button[type="submit"]:after,
 .sqs-block-form radio,
 .sqs-block-form checkbox,
 .sqs-block-form .caption-text {
-  font-family: var(--inter), var(--body), sans-serif !important;
-  font-feature-settings: var(--inter-features);
   transition: var(--trans) !important;
   outline-offset: 3px!important;
   outline: 1px solid transparent;
+  font-weight: 500!important;
 }
 .sqs-block-form input:focus,
 .sqs-block-form select:focus,
@@ -368,13 +367,11 @@ button[type="submit"]:after,
 .sqs-block-form .caption-text:focus {
   outline: 1px solid var(--tweak-form-block-stroke-color);
 }
-.sqs-block-form ::placeholder {
-  font-family: var(--inter), var(--body), sans-serif !important;
-  font-feature-settings: var(--inter-features);
-}
-/*Text Area Min Height*/
-textarea {
-  min-height: 150px!important;
+.sqs-block-form ::placeholder,
+.sqs-block-form select.show-placeholder,
+.sqs-block-form .form-input-prefix {
+  color: var(--tweak-form-block-stroke-color) !important;
+  opacity: 1!important;
 }
 /*Replace "reqired" with "*" */
 .form-wrapper .field-list .description.required {
@@ -390,44 +387,63 @@ textarea {
   font-weight: 600!important;
   font-size: 12px;
 }
-/*Lightbox Dimensions*/
 .sqs-modal-lightbox-content .lightbox-inner .lightbox-content {
-  padding: 60px!important;
-  max-width: 400px!important;
+  border-radius: var(--global-radius);
+  max-width: 450px!important;
+  padding: 80px 60px;
 }
-@media screen and (max-width: 800px) {
-  .sqs-modal-lightbox-content .lightbox-inner .lightbox-content {
-    padding: 30px!important;
-  }
-}
-/*Lightbox Form Close X*/
-.lightbox-close {
+.sqs-modal-lightbox-content .lightbox-inner .lightbox-content .lightbox-close {
+  top: 80px;
+  right: 60px;
+  border-radius: var(--global-radius);
+  font-size: 0!important;
+  padding: 10px;
+  height: 20px;
+  width: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 32px!important;
-  right: 26px!important;
-  height: 30px!important;
-  width: 30px!important;
-  font-size: 0!important;
-  visibility: hidden;
+  color: var(--dark) !important;
+  background: var(--light) !important;
+  font-family: var(--arrows) !important;
+  transition: var(--trans) !important;
 }
-.lightbox-close:after {
-  font-size: 1.5rem !important;
-  visibility: visible;
-  content: "✕";
+.sqs-modal-lightbox-content .lightbox-inner .lightbox-content .lightbox-close:after {
+  font-weight: 300!important;
+  font-size: 26px;
+  content: "×";
+  margin-bottom: 3px!important;
   font-family: var(--inter) !important;
-  line-height: 0.8 !important;
 }
+.sqs-modal-lightbox-content .lightbox-inner .lightbox-content .lightbox-close:hover {
+  transition: var(--trans) !important;
+  background: var(--dark) !important;
+  color: var(--light) !important;
+}
+.sqs-modal-lightbox-content .form-submit-button {
+  width: 100%!important;
+}
+/*Form Title*/
+.form-title {
+  letter-spacing: 0.01em !important;
+}
+/*Accordion Title*/
+.accordion-item__title {
+  font-weight: 500!important;
+  letter-spacing: 0.035em !important;
+}
+/*Accordion Item*/
 .accordion-item {
-  margin: 20px 0!important;
+  margin: 10px 0!important;
+  border-radius: var(--global-radius) !important;
+  -webkit-border-radius: var(--global-radius) !important;
   overflow: hidden!important;
   outline: 1px solid transparent!important;
   transition: var(--trans);
 }
 @media screen and (max-width: 767px) {
   .accordion-item {
-    margin: 15px 0!important;
+    margin: 16px 0!important;
   }
 }
 .accordion-item:hover {
@@ -439,9 +455,11 @@ textarea {
 .accordion-item__description {
   background-color: var(--accordion-background) !important;
 }
-/*Small P Margin*/
-.accordion-item .sqsrte-small {
-  margin: 0!important;
+/*Adjust Spacing Mobile*/
+@media screen and (max-width: 767px) {
+  .accordion-item:first-child {
+    margin-top: 0px!important;
+  }
 }
 /*Accordion Plus Container*/
 .accordion-icon-container {
@@ -459,19 +477,10 @@ textarea {
   left: unset !important;
   top: unset !important;
 }
-/*Adjust Spacing Mobile*/
-@media screen and (max-width: 767px) {
-  .accordion-item:first-child {
-    margin-top: -15px !important;
-  }
-}
 /*Newsletter Form*/
 .newsletter-form {
   display: flex!important;
-}
-/*Flex Background Radius*/
-.tweak-global-animations-animation-type-flex .newsletter-form .sqs-button-element--primary:not(.ma-pricing-option-button)::before {
-  border-radius: 0px!important;
+  align-items: center!important;
 }
 /*Remove Header + Footnote*/
 .newsletter-block .newsletter-form-header,
@@ -487,6 +496,8 @@ textarea {
   min-width: unset!important;
   margin: 0!important;
   padding: 0!important;
+  -webkit-animation: 0.3s ease 0s normal forwards 1 flexload;
+  animation: 0.3s ease 0s normal forwards 1 flexload;
 }
 /*FLOAT*/
 /*Wrapper Alignment*/
@@ -552,16 +563,16 @@ textarea {
   }
 }
 .newsletter-form-wrapper--layoutFloat .newsletter-form-button {
-  padding: 15px 20px!important;
+  padding: 14px 20px!important;
   display: flex!important;
   position: relative!important;
   align-items: center!important;
   justify-content: center;
-  border-radius: 0px!important;
+  border-radius: var(--global-radius) !important;
   transition: var(--trans) !important;
 }
 .newsletter-form-wrapper--layoutFloat .newsletter-form-button:before {
-  border-radius: 0x!important;
+  border-radius: var(--global-radius) !important;
 }
 .newsletter-form-wrapper--layoutFloat .newsletter-form-button:hover {
   opacity: 1!important;
@@ -606,7 +617,7 @@ textarea {
   display: flex!important;
   align-items: stretch!important;
   flex-direction: column!important;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
 }
 .newsletter-form-wrapper--layoutStack .newsletter-form-field-wrapper {
@@ -617,12 +628,12 @@ textarea {
 }
 .newsletter-form-wrapper--layoutStack .newsletter-form-button,
 .newsletter-form-wrapper--layoutStack .newsletter-form-button-wrapper {
-  border-radius: 0px!important;
+  border-radius: var(--global-radius) !important;
   margin: 0!important;
   width: 100%!important;
 }
 .newsletter-form-wrapper--layoutStack .newsletter-form-button {
-  padding: 28px!important;
+  padding: 14px!important;
 }
 .newsletter-form-wrapper--layoutStack .newsletter-form-button:hover {
   opacity: 1!important;
@@ -631,17 +642,18 @@ textarea {
 .sqs-block-newsletter .newsletter-form-field-element {
   min-width: 15rem!important;
   padding: 15px!important;
-  font-size: 15px!important;
+  border-radius: var(--global-radius) !important;
   border: none!important;
-  border-radius: 0px!important;
-  -webkit-border-radius: 0px!important;
+  -webkit-border-radius: var(--global-radius) !important;
   transition: var(--trans) !important;
   outline-offset: 3px;
   outline: 1px solid transparent;
-  text-align: left!important;
 }
 .sqs-block-newsletter .newsletter-form-field-element::placeholder {
-  color: var(--light) !important;
+  opacity: 0.5;
+}
+.sqs-block-newsletter .newsletter-form-field-element:focus {
+  outline: 1px solid var(--accent) !important;
 }
 @media screen and (max-width: 767px) {
   .sqs-block-newsletter .newsletter-form-field-element {
