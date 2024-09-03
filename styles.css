@@ -457,7 +457,7 @@ button[type="submit"]:after,
 /*Accordion Title Wrapper*/
 .accordion-item__title-wrapper,
 .accordion-item__description {
-  background-color: var(--accordion-background) !important;
+  background-color: var(--secondary-color) !important;
 }
 /*Adjust Spacing Mobile*/
 @media screen and (max-width: 767px) {
