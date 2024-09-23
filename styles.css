@@ -487,8 +487,9 @@ button[type="submit"]:after,
   letter-spacing: 0em!important;
 }
 .sqs-modal-lightbox-content .lightbox-inner .lightbox-content .lightbox-close {
-  top: var(--sqs-mobile-site-gutter) !important;
-  right: var(--sqs-mobile-site-gutter) !important;
+  z-index: 99!important;
+  top: 80px;
+  right: 60px;
   border-radius: var(--global-radius);
   font-size: 0!important;
   padding: 10px;
@@ -501,6 +502,12 @@ button[type="submit"]:after,
   background: var(--light) !important;
   font-family: var(--arrows) !important;
   transition: var(--trans) !important;
+}
+@media screen and (max-width: 767px) {
+  .sqs-modal-lightbox-content .lightbox-inner .lightbox-content .lightbox-close {
+    top: var(--sqs-mobile-site-gutter) !important;
+    right: var(--sqs-mobile-site-gutter) !important;
+  }
 }
 .sqs-modal-lightbox-content .lightbox-inner .lightbox-content .lightbox-close:after {
   font-weight: 300!important;
