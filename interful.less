@@ -1,4 +1,4 @@
-//---Handshake CSS INTERFUL • 02/21/25---//
+//---Handshake CSS INTERFUL • 04/10/25---//
 @fe-block-height:25.8px;
 html{
 --c-border:1px solid currentColor;
@@ -164,6 +164,22 @@ line-height:1.25!important;}
 background-image:none!important;
 text-decoration:none!important;
 background:none!important;}
+
+
+//---FOLDER---//
+/*Folder Icon Transition*/
+.header-nav-item--folder .header-dropdown-flip svg, .header-nav-item--folder:hover .header-dropdown-flip svg, .header-nav .header-nav-item--folder a.header-nav-folder-title[aria-expanded='true'] .header-dropdown-flip svg{
+transition: ease .25s all!important;}
+
+/*Folder Content Transition*/
+.header-nav-item--folder{
+.header-nav-folder-content{
+display:block!important;
+opacity:0!important;
+transition: ease .25s all;}
+&:hover{
+.header-nav-folder-content{
+opacity:1!important;}}}
 
 
 //---MOBILE NAVIGATION---//
